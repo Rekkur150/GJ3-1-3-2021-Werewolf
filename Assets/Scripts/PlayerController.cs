@@ -16,11 +16,30 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The player vision controler")]
     public Vision PlayerVision;
 
+    void Update()
+    {
+        GetPlayerInput();
+    }
+
     /// <summary>
     /// Gets the player input then sends it to the player's character
     /// </summary>
     private void GetPlayerInput()
     {
+        float[] temp = new float[3];
+
+        temp[0] = Input.GetAxis("Horizontal");
+        temp[1] = Input.GetAxis("Vertical");
+        
+        if (Input.GetButtonDown("Sprint"))
+        {
+            temp[2] = 1f;
+        } else
+        {
+            temp[2] = 0f;
+        }
+
+        PlayerControlledCharacter.Move(temp);
 
     }
 

@@ -33,6 +33,13 @@ public class Character : MonoBehaviour
     private float Health;
     private float Stamina;
 
+    private Rigidbody2D rigidBody;
+
+
+    void Start()
+    {
+        rigidBody = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     /// <summary>
     /// Gets the health
@@ -116,7 +123,14 @@ public class Character : MonoBehaviour
     /// <param name="controls">The movement vector, [0]:x(-1,1), [1]:y(-1,1), [2]:spriting(0,1)</param>
     public void Move(float[] controls)
     {
+        float usedSpeed = WalkingSpeed;
 
+        if (controls[2] > 0.9f)
+        {
+            usedSpeed = SprintingSpeed;
+        }
+
+        rigidBody.velocity = transform.right * controls[0] * usedSpeed + transform.up * controls[1] * usedSpeed;
     }
 
     /// <summary>
