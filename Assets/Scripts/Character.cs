@@ -25,7 +25,10 @@ public class Character : MonoBehaviour
     public float MaxStamina;
 
     [Tooltip("The skills this character has")]
-    public Dictionary<string, Skill> Skills;
+    public Skills skillList;
+
+    [Tooltip("The score value of this character")]
+    public float Score;
 
     private float Health;
     private float Stamina;

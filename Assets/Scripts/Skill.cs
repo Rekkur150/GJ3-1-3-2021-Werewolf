@@ -25,6 +25,7 @@ public class Skill : MonoBehaviour
     /// <param name="newCharacter">The new character</param>
     public void ChangeCharacterToActivateOn(Character newCharacter)
     {
+
     }
 
     /// <summary>
@@ -35,6 +36,4 @@ public class Skill : MonoBehaviour
     {
         return new bool();
     }
-
-
 }
