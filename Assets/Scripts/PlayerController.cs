@@ -30,8 +30,10 @@ public class PlayerController : MonoBehaviour
 
         temp[0] = Input.GetAxis("Horizontal");
         temp[1] = Input.GetAxis("Vertical");
-        
-        if (Input.GetButtonDown("Sprint"))
+
+        Debug.Log(temp[0]);
+
+        if (Input.GetButton("Sprint"))
         {
             temp[2] = 1f;
         } else

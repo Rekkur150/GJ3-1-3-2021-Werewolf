@@ -253,8 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  WalkingSpeed: 10
-  SprintingSpeed: 20
+  WalkingSpeed: 2
+  SprintingSpeed: 5
   RotationSpeed: 0
   MaxStamina: 0
   skillList: {fileID: 0}

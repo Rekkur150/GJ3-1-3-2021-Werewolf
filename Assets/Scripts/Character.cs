@@ -130,7 +130,7 @@ public class Character : MonoBehaviour
             usedSpeed = SprintingSpeed;
         }
 
-        rigidBody.velocity = transform.right * controls[0] * usedSpeed + transform.up * controls[1] * usedSpeed;
+        rigidBody.velocity = Vector2.ClampMagnitude((transform.right * controls[0] + transform.up * controls[1]) * usedSpeed, usedSpeed);
     }
 
     /// <summary>
