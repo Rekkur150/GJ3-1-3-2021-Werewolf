@@ -30,6 +30,9 @@ public class Character : MonoBehaviour
     [Tooltip("The score value of this character")]
     public float Score;
 
+    [Tooltip("The head, this determines look direction")]
+    public GameObject Head;
+
     private float Health;
     private float Stamina;
 
@@ -149,6 +152,20 @@ public class Character : MonoBehaviour
     /// </summary>
     /// <param name="LookLocation">The position you want the character to look at</param>
     public void LookAt(Vector2 LookLocation)
+    {
+        Vector2 position = transform.position;
+
+        Quaternion temp = Quaternion.LookRotation(position - LookLocation, Vector3.forward);
+        temp.x = 0;
+        temp.y = 0;
+        Head.transform.rotation = temp;
+    }
+
+    /// <summary>
+    /// The assumes look vector starts at character position then look ats end of vector
+    /// </summary>
+    /// <param name="lookVector"></param>
+    public void LookVector(Vector2 lookVector)
     {
 
     }

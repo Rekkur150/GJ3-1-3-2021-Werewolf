@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The player vision controler")]
     public Vision PlayerVision;
 
+    [Tooltip("The player's camera")]
+    public Camera PlayerCamera;
+
     void Update()
     {
         GetPlayerInput();
@@ -26,12 +29,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void GetPlayerInput()
     {
+
+        ///Movement Controls
         float[] temp = new float[3];
 
         temp[0] = Input.GetAxis("Horizontal");
         temp[1] = Input.GetAxis("Vertical");
-
-        Debug.Log(temp[0]);
 
         if (Input.GetButton("Sprint"))
         {
@@ -43,6 +46,12 @@ public class PlayerController : MonoBehaviour
 
         PlayerControlledCharacter.Move(temp);
 
+
+        ///Character Rotation
+        Vector3 mousePosition = PlayerCamera.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+
+        PlayerControlledCharacter.LookAt(mousePosition);
     }
 
     /// <summary>
