@@ -7,5 +7,10 @@ public class PrefabData : MonoBehaviour
     [Tooltip("The lowest difficulty this building will be generated at")]
     public float MininalDifficult;
 
-    ///Store whatever we are going to use for a prefab
+    [Tooltip("The tiles tilebase, use TilePosition for positing")]
+    public WorldTile[] WorldTiles;
+
+    [Tooltip("The tile's placement")]
+    public Vector3Int[] TilePositions;
+
 }

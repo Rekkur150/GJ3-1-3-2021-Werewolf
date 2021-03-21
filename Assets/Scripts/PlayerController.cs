@@ -51,6 +51,13 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePosition = PlayerCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            
+            MapController.instance.GetTileData(new Vector3Int(Mathf.FloorToInt(mousePosition.x), Mathf.FloorToInt(mousePosition.y), 0)).Destroyed();
+        }
+
         PlayerControlledCharacter.LookAt(mousePosition);
     }
 
